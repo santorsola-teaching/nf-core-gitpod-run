@@ -32,6 +32,10 @@ One might also need to use custom files: in this case the users might either pro
 
 We will follow this specific approach in this tutorial, since the data we will be using have been simulated on chromosome 21 of the Human GRCh38 reference, and we have prepared fasta, indexes and annotation files containing only this chromosome locally.
 
+## Reference annoation
+
+
+
 ## Input files
 
 The input data should be provided in a CSV file, according to a format that is largely common for nf-core pipelines.
@@ -44,18 +48,6 @@ In the following sections we will:
 - set our computational resources in order to be able to run the pipeline on a gitpod VM;
 - edit the filtering settings;
 - run the pipeline.
-
-To prevent losing connection, open the **Terminal** and type:
-
-```bash
-sleep 2h
-```
-
-This command will keep the gitpod session active for exactly 2 hours, providing sufficient time to complete our analysis without interruption.
-
-![overview](./img/sleep_2h.png)
-
-Now come back to our **Console**.
 
 ## Reference and annotation files
 
