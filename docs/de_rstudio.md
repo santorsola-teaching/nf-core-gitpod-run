@@ -17,7 +17,6 @@ Username: gitpod
 Password: pass
 ```
 
-
 ## Differential Expression Analysis
 
 As in all analysis, firstly we need to create a new project:

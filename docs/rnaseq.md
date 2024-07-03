@@ -18,11 +18,11 @@ In RNA-seq experimental design, the number of reads and the number of biological
 To ensure the validity of the results, it is crucial to carefully consider the trade-off between the number of biological replicates and sequencing depth. Higher sequencing depth can improve the ability to detect lowly expressed genes and provide more precise quantification of gene expression. However, beyond a certain threshold, increasing sequencing depth yields diminishing returns in terms of data quality and biological insight, making it important to find an optimal balance. Therefore, it is often more beneficial to prioritize biological replicates over simply increasing sequencing depth or technical replicates.
 Furthermore, the number of reads and biological replicates should be estimated through a calculation of the statistical power, which takes into account the desired fold change, alpha level, and effect size. This calculation can inform the experimental design and provide a basis for setting the log2 fold change (log2FC) threshold in the subsequent differential expression (DE) analysis. By incorporating multiple biological replicates into the experimental design, optimizing sequencing depth, and estimating the required number of reads and replicates through statistical power calculations, it is possible tp increase the statistical power of the analysis, reduce the risk of false positives, and gain a more comprehensive understanding of the biological system being studied.
 
-### Library design
+## Library design
 
 RNA-seq library design involves a range of critical decisions, including the choice between paired-end and single-end sequencing strategies. This choice is influenced by several key factors, such as fragment size selection, strand specificity preservation, and optimal read length determination. Paired-end sequencing, where both ends of a fragment are sequenced, provides valuable information about structural variations and transcript isoforms and can improve mapping accuracy, especially for longer transcripts and repetitive regions. In contrast, single-end sequencing, where only one end of the fragment is sequenced, can be more cost-effective while still providing high-quality data for gene expression analysis. The decision between paired-end and single-end sequencing ultimately depends on the research question and experimental goals. For instance, paired-end sequencing may be preferred if the focus is on identifying novel transcripts or characterizing transcript isoforms. However, if the primary goal is to quantify gene expression levels, single-end sequencing may be sufficient. The type of RNA being sequenced also plays a crucial role in library design, as different RNA species (e.g., mRNA, total RNA, small RNA) require distinct protocols. Additionally, the chosen read length can impact the ability to detect specific features, such as splice junctions or repeated regions. Therefore, the choice between paired-end and single-end reads in RNA-seq library design depends on the specific research goals, the nature of the RNA samples, budget constraints, alongside considerations for data analysis complexity and computational resources.
 
-### Reference genome
+## Reference genome
 
 nf-core pipelines make use of the Illumina iGenomes collection as [reference genomes](https://nf-co.re/docs/usage/reference_genomes).
 Before starting the analysis, the users might want to check whether the genome they need is part of this collection.
@@ -32,7 +32,7 @@ One might also need to use custom files: in this case the users might either pro
 
 We will follow this specific approach in this tutorial, since the data we will be using have been simulated on chromosome 21 of the Human GRCh38 reference, and we have prepared fasta, indexes and annotation files containing only this chromosome locally.
 
-### Input files
+## Input files
 
 The input data should be provided in a CSV file, according to a format that is largely common for nf-core pipelines.
 The format is described in the [rnaseq usage page](https://nf-co.re/rnaseq/3.14.0/docs/usage).
@@ -57,7 +57,7 @@ This command will keep the gitpod session active for exactly 2 hours, providing 
 
 Now come back to our **Console**.
 
-### Reference and annotation files
+## Reference and annotation files
 
 Following the considerations above, we will first of all edit the `nextflow.config` file in our working directory to add a new genome.
 It is sufficient to add the following code to the `parameters` directive in the config.
@@ -75,7 +75,7 @@ genomes {
 }
 ```
 
-### Computing resources
+## Computing resources
 
 Based on the choices we made when starting up the gitpod environment, we recommend to use the following additional parameters.
 They can also be added to the parameters directive in the config file we just edited.
@@ -88,7 +88,7 @@ params {
 }
 ```
 
-### Launching the pipeline
+## Launching the pipeline
 
 Now we are ready to launch the pipeline, and we can use the following command line:
 
