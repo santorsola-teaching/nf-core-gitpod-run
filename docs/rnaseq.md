@@ -38,9 +38,9 @@ The reference annotation plays a crucial role in the RNA-seq analysis. Without a
 The reference annotation provides essential information about the structures of genes and transcripts, but it also includes information about gene ontology, pathways, and protein domains, which is essential for understanding the biological context of gene expression changes. 
 
 nf-core pipelines make use of the Illumina iGenomes collection also as [reference annotation](https://nf-co.re/docs/usage/reference_genomes).
-The reference annotations are vastly out of date with respect to current annotations and miss certain features such as gene_biotype. So, the general recommendation is to download a newest annotation version compatible with the genome. A user can utilize the `--gtf` or the `--gff` options to specify the annottation files of choiche, or create a config file adding a new section to the `genome` object. 
+The reference annotations are vastly out of date with respect to current annotations and miss certain features. So, the general recommendation is to download a newest annotation version compatible with the genome. A user can utilize the `--gtf` or the `--gff` options to specify the annottation files of choiche, or create a config file adding a new section to the `genome` object. 
 
-As for the genome, in this tutorial we will follow this approach. The annotation file contains only annotated transcripts on chromosome 21 of the Human GRCh38 reference and we have already prepared locally the files. The two files are `/workspace/gitpod/training/data/refs/gencode_v29_chr21.gff` and `/workspace/gitpod/training/data/refs/gencode_v29_transcripts_chr21.fa`, respectively.
+Similarly to the approach utilized for the genome, in this tutorial we will follow this approach. The annotation files include only the annotated transcripts on chromosome 21 of the Human GRCh38 reference genome, and we have already prepared these files locally. The two files are `/workspace/gitpod/training/data/refs/gencode_v29_chr21.gff` and `/workspace/gitpod/training/data/refs/gencode_v29_transcripts_chr21.fa`, respectively.
 
 ## Input files
 
@@ -75,8 +75,8 @@ genomes {
 }
 ```
 
-To ensure data reproducibility we will add to the config file also the `star_index` and the `salmon_index`. 
-It is important to note that if these two files are not passed in the config file but automatically generated from the pipeline, the results may exhibit slight discrepancies in different runs, due to the inherent randomness of the STAR and Salmon algorithm. This randomness stems from the use of variable seed values and parallel processing, which can introduce minor differences in results between runs on the same dataset. While these small variations may affect count data and subsequent visualizations, such as PCA and count plots, they do not have biological significance. Moreover, the overall trends and key findings should remain consistent across runs. Although exact reproducibility is the ideal, minor variations are tolerated in practice as long as they do not compromise the main conclusions of the study.
+To speed up the analysis we will include the `star_index` and the `salmon_index` in the config. These files have already been created locally.
+
 
 ## Computing resources
 
