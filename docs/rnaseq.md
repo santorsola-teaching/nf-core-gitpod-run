@@ -28,13 +28,17 @@ nf-core pipelines make use of the Illumina iGenomes collection as [reference gen
 Before starting the analysis, the users might want to check whether the genome they need is part of this collection.
 They also might want to consider downloading the reference locally, when running on premises: this would be useful for multiple runs and to speed up the analysis. In this case the parameter `--igenomes_base` might be used to pass the root directory of the downloaded references. 
 
-One might also need to use custom files: in this case the users might either provide specific parameters at command line, or create a config file adding a new section to the `genome` object. See [here](https://nf-co.re/docs/usage/reference_genomes#custom-genomes) for more details.
+One might also need to use custom files: in this case the users might either provide specific parameters at command line (`--fasta` option followed by the genome of choiche), or create a config file adding a new section to the `genome` object. See [here](https://nf-co.re/docs/usage/reference_genomes#custom-genomes) for more details.
 
 We will follow this specific approach in this tutorial, since the data we will be using have been simulated on chromosome 21 of the Human GRCh38 reference, and we have prepared fasta, indexes and annotation files containing only this chromosome locally.
 
 ## Reference annoation
 
+The reference annotation plays a crucial role in the RNA-seq analysis. Without a high-quality reference annotation, RNA-seq analysis would be severely hindered, leading to inaccurate or incomplete results. The reference annotation provides a precise guide for aligning sequencing reads to specific genomic regions, allowing to identify the genes, transcripts and regulatory elements. This is particularly important for identifying novel transcripts and alternative splicing events.
+The reference annotation provides essential information about the structures of genes and transcripts, but it also includes information about gene ontology, pathways, and protein domains, which is essential for understanding the biological context of gene expression changes. 
 
+nf-core pipelines make use of the Illumina iGenomes collection also as [reference annotation](https://nf-co.re/docs/usage/reference_genomes).
+The reference annotations are vastly out of date with respect to current annotations and miss certain features such as gene_biotype. So, the general recommendation is to download a newest annotation version compatible with the genome. A user can utilize the `--gtf` or the `--gff` options to specify the annottation files of choiche, or create a config file adding a new section to the `genome` object. 
 
 ## Input files
 
