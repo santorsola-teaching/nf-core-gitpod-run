@@ -30,7 +30,7 @@ They also might want to consider downloading the reference locally, when running
 
 One might also need to use custom files: in this case the users might either provide specific parameters at command line (`--fasta` option followed by the genome of choiche), or create a config file adding a new section to the `genome` object. See [here](https://nf-co.re/docs/usage/reference_genomes#custom-genomes) for more details.
 
-We will follow this specific approach in this tutorial, since the data we will be using have been simulated on chromosome 21 of the Human GRCh38 reference, and we have prepared fasta, indexes and annotation files containing only this chromosome locally.
+We will follow this specific approach in this tutorial, since the data we will be using have been simulated on chromosome 21 of the Human GRCh38 reference, and we have prepared genome fasta and genome index containing only this chromosome locally. The two files are `/workspace/gitpod/training/data/refs/Homo_sapiens_assembly38_chr21.fa` and `/workspace/gitpod/training/data/refs/Homo_sapiens_assembly38_chr21.fa.fai`, respectively.
 
 ## Reference annoation
 
@@ -40,10 +40,13 @@ The reference annotation provides essential information about the structures of 
 nf-core pipelines make use of the Illumina iGenomes collection also as [reference annotation](https://nf-co.re/docs/usage/reference_genomes).
 The reference annotations are vastly out of date with respect to current annotations and miss certain features such as gene_biotype. So, the general recommendation is to download a newest annotation version compatible with the genome. A user can utilize the `--gtf` or the `--gff` options to specify the annottation files of choiche, or create a config file adding a new section to the `genome` object. 
 
+As for the genome, in this tutorial we will follow this approach. The annotation file contains only annotated transcripts on chromosome 21 of the Human GRCh38 reference and we have already prepared locally the files. The two files are `/workspace/gitpod/training/data/refs/gencode_v29_chr21.gff` and `/workspace/gitpod/training/data/refs/gencode_v29_transcripts_chr21.fa`, respectively.
+
 ## Input files
 
 The input data should be provided in a CSV file, according to a format that is largely common for nf-core pipelines.
 The format is described in the [rnaseq usage page](https://nf-co.re/rnaseq/3.14.0/docs/usage).
+The file is `/workspace/gitpod/training/data/reads/rnaseq_samplesheet.csv`
 
 ## Running nf-core/rnaseq
 
@@ -66,10 +69,14 @@ genomes {
             fasta_fai             = "${params.igenomes_base}/sequence/Homo_sapiens_assembly38_chr21.fasta.fai"
             gff                   = "${params.igenomes_base}/gencode_v29_chr21_parsed.gff"
             transcript_fasta      = "${params.igenomes_base}/gencode.v29.transcripts_chr21.fa"
+            star_index            = "${params.igenomes_base}/star_index_chr21.tar.gz"
             salmon_index          = "${params.igenomes_base}/salmon_index_chr21.tar.gz"
 	}
 }
 ```
+
+To ensure data reproducibility we will add to the config file also the `star_index` and the `salmon_index`. 
+It is important to note that if these two files are not passed in the config file but automatically generated from the pipeline, the results may exhibit slight discrepancies in different runs, due to the inherent randomness of the STAR and Salmon algorithm. This randomness stems from the use of variable seed values and parallel processing, which can introduce minor differences in results between runs on the same dataset. While these small variations may affect count data and subsequent visualizations, such as PCA and count plots, they do not have biological significance. Moreover, the overall trends and key findings should remain consistent across runs. Although exact reproducibility is the ideal, minor variations are tolerated in practice as long as they do not compromise the main conclusions of the study.
 
 ## Computing resources
 
