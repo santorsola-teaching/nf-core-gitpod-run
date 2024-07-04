@@ -46,7 +46,7 @@ Similarly to the approach utilized for the genome, in this tutorial we will foll
 
 The input data should be provided in a CSV file, according to a format that is largely common for nf-core pipelines.
 The format is described in the [rnaseq usage page](https://nf-co.re/rnaseq/3.14.0/docs/usage).
-The file is `/workspace/gitpod/training/data/reads/rnaseq_samplesheet.csv`
+The file is `/workspace/gitpod/training/data/reads/rnaseq_samplesheet.csv`.
 
 ## Running nf-core/rnaseq
 
