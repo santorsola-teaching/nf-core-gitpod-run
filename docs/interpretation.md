@@ -3,7 +3,7 @@
 Once the differential expression genes have been identified, the next crucial step is to interpret the results. This involves examining the tables and plots generated during the analysis to understand the biological implications of the data. In this part of the tutorial, we will delve into the results by discussing the significant genes identified, their expression patterns, and the visual representations of these findings. We will explore various tables and plots, such as volcano plots, MA plots, and heatmaps, to gain insights into the underlying biological processes and validate the reliability of our results.
 
 > [!NOTE]
-> the results illustrated in this section might show slight variations compared to your runs due to randomness in the STAR algorithm. This randomness arises from using variable seed values and parallel processing, leading to minor differences in results between runs on the same data. These small discrepancies are not biologically significant and may affect counts and subsequent plots (such as PCA and count plots). However, the overall patterns and main findings should remain consistent. While exact reproducibility is ideal, minor variations are acceptable in practice, as long as they do not impact the main conclusions of the study.
+> The results illustrated in this section might show slight variations compared to your runs due to randomness in the STAR algorithm. This randomness arises from using variable seed values and parallel processing, leading to minor differences in results between runs on the same data. These small discrepancies are not biologically significant and may affect counts and subsequent plots (such as PCA and count plots). However, the overall patterns and main findings should remain consistent. While exact reproducibility is ideal, minor variations are acceptable in practice, as long as they do not impact the main conclusions of the study.
 
 The first plot we will examine is the Principal Component Analysis (PCA) plot. Since we're working with simulated data, our metadata is relatively simple, consisting of just three variables: sample, condition, and replica. In a typical RNA-seq experiment, however, metadata can be complex and encompass a wide range of variables that could contribute to sample variation, such as sex, age and developmental stage. 
 
@@ -29,15 +29,12 @@ By default, genes are coloured in blue if the padj is less than 0.1 and the log2
 After filtering our genes of interest according to our threshold, let's have a look to our significatnt genes
 
 ```bash
-log2 fold change (MLE): condition treatment vs control 
-Wald test p-value: condition treatment vs control 
-DataFrame with 5 rows and 6 columns
-gene            baseMean      log2FoldChange    lfcSE       stat       pvalue          padj
-ENSG00000205726 121653.2815   2.895764          0.1501028   19.291872   6.285623e-83    1.477121e-80
-ENSG00000142192  51025.6955   3.023104          0.1868371   16.180420   6.931957e-59    8.145049e-57
-ENSG00000142156  20789.8570   2.975533          0.2127267   13.987585   1.856093e-44    1.453940e-42
-ENSG00000159231    458.8502   -1.195471         0.3170778   -3.770276   1.630670e-04    9.580189e-03
-ENSG00000156282    481.6481   1.091949          0.3084051   3.540632    3.991703e-04    1.876100e-02
+gene                baseMean        log2FoldChange     lfcSE          stat            pvalue              padj
+ENSG00000205726     121645.5908     2.894480           0.1515387      19.100600       2.496005e-81        5.840651e-79
+ENSG00000142192     51065.3192      3.025489           0.1891258      15.997230       1.335883e-57        1.562983e-55
+ENSG00000142156     20805.8078      2.977705           0.2159277      13.790287       2.915972e-43        2.274458e-41
+ENSG00000159231     458.9277        -1.194777          0.3058100      -3.906926       9.347790e-05        5.468457e-03
+ENSG00000156282     481.7624        1.095272           0.2969594      3.688289        2.257672e-04        1.056590e-02
 ```
 
 After the identification of DE genes, it's informative to visualize the expression of specific genes of interest. Using the [plotCounts()] function directly on the [dds] object allows us to examine individual gene expression profiles without accessing the full [res] object.
