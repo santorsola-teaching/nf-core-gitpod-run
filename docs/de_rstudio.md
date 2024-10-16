@@ -21,4 +21,3 @@ sleep 2h
 
 This command will keep the gitpod session active for exactly 2 hours, providing sufficient time to complete our analysis without interruption.
 
-![overview](./img/sleep_2h.png)
