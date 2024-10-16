@@ -1,15 +1,12 @@
-site_name: nf-core/rnaseq tutorial
-site_url: http://lescai-teaching.github.io/rnaseq-tutorial
-repo_url: http://github.com/lescai-teaching/rnaseq-tutorial
-repo_name: lescai-teaching/rnaseq-tutorial
+site_name: nf-core gitpod run
+site_url: http://santorsola-teaching.github.io/nf-core-gitpod-run
+repo_url: http://github.com/santorsola-teaching/nf-core-gitpod-run
+repo_name: santorsola-teaching/nf-core-gitpod-run
 
 nav:
     - Home: index.md
-    - RNAseq Tutorial:
-            - theory.md
-            - rnaseq.md
+    - Instructions:
             - de_rstudio.md
-            - interpretation.md
 
 theme:
     name: material

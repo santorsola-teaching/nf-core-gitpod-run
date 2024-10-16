@@ -1,6 +1,6 @@
 {
     "folders": [
-        { "path": "./training" }
+        { "path": "./workfolder" }
     ],
     "settings": {
         "typescript.tsdk": "gitpod/node_modules/typescript/lib",

@@ -1,25 +1,11 @@
 ---
 enableToc: false
-title: "nf-core/rnaseq tutorial"
+title: "nf-core pipelines on Gitpod"
 ---
 
 ## Welcome
 
-These pages are a tutorial workshop for the [Nextflow](https://www.nextflow.io) pipeline [nf-core/rnaseq](https://nf-co.re/rnaseq).
-
-In this workshop, we will recap the application of next generation sequencing to identify differentially expressed genes. You will learn how to use the rnaseq pipeline out this data-intensive workflow efficiently. We will cover topics such as configuration of the pipeline, code execution and data interpretation.
-
-Please note that this is not an introductory workshop, and we will assume some basic familiarity with Nextflow.
-
-By the end of this workshop, you will be able to:
-
-- understand the key concepts behind RNAseq differential expression analysis, as adopted in this pipeline
-- analyse simple NGS datasets with the nf-core/rnaseq workflow 
-- customise some of its features for your own analyses
-- integrate different sources of information to interpret the results
-
-Let's get started!
-
+This pages includes instructions to run nf-core pipelines on Gitpod area.
 
 ## Running with Gitpod
 
@@ -32,13 +18,6 @@ Now you're all set and can use the following button to launch the service:
 
 
 [![Open in GitPod](https://img.shields.io/badge/Gitpod-%20Open%20in%20Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/lescai-teaching/rnaseq-tutorial)
-
-
-
-## Additional documentation
-
-- You can find detailed documentation on **Nextflow** [here](https://www.nextflow.io/docs/latest/)
-- You can find additional training on [these pages](https://training.nextflow.io)
 
 
 ## Credits & Copyright
